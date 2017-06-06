@@ -1,0 +1,12 @@
+{
+  "name": "reason-scripts",
+  "sources": [
+    "src"
+  ],
+  "bs-dependencies": [
+  ],
+  "reason": {
+    "react-jsx": true
+  },
+  "package-specs": ["es6"]
+}
