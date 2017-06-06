@@ -9,6 +9,10 @@
 # production
 /build
 
+# bucklescript
+/lib
+/types
+
 # misc
 .DS_Store
 .env.local

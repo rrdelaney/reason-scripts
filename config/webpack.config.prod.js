@@ -159,6 +159,7 @@ module.exports = {
         exclude: [
           /\.html$/,
           /\.(js|jsx)$/,
+          /\.(re|rei)$/,
           /\.css$/,
           /\.json$/,
           /\.bmp$/,
@@ -245,6 +246,17 @@ module.exports = {
         ),
         // Note: this won't work without `new ExtractTextPlugin()` in `plugins`.
       },
+      {
+        test: /\.(re|rei)$/,
+        use: [
+          {
+            loader: require.resolve('bs-loader'),
+            options: {
+              module: 'es6'
+            }
+          }
+        ]
+      }
       // ** STOP ** Are you adding a new loader?
       // Remember to add the new extension(s) to the "file" loader exclusion list.
     ],
