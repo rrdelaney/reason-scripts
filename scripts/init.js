@@ -105,7 +105,6 @@ module.exports = function(
     command = 'npm';
     args = ['install', '--save', verbose && '--verbose'].filter(e => e);
   }
-  args.push('react', 'react-dom');
 
   // Install additional template dependencies, if present
   const templateDependenciesPath = path.join(
@@ -126,6 +125,8 @@ module.exports = function(
   // which doesn't install react and react-dom along with react-scripts
   // or template is presetend (via --internal-testing-template)
   if (!isReactInstalled(appPackage) || template) {
+    args.push('react', 'react-dom');
+    
     console.log(`Installing react and react-dom using ${command}...`);
     console.log();
 
@@ -137,7 +138,7 @@ module.exports = function(
   }
 
   // Install dependencies needed by Reason
-  const extraDeps = ['reason-js', 'reason-react'];
+  const extraDeps = [...args, 'reason-js', 'reason-react'];
   console.log(`Installing reason-js and reason-react using ${command}...`);
   console.log()
   const proc = spawn.sync(command, extraDeps, { stdio: 'inherit' });
