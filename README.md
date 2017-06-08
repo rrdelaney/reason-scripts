@@ -4,5 +4,5 @@ This package provides a `react-scripts` fork for using ReasonML. To bootstrap a 
 using React and Reason, run:
 
 ```
-$ yarn create react-app -- --scripts-version reason-scripts
+$ yarn create react-app <app name> -- --scripts-version reason-scripts
 ```
