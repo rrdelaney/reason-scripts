@@ -1,7 +1,8 @@
-# react-scripts
+# reason-scripts
 
-This package includes scripts and configuration used by [Create React App](https://github.com/facebookincubator/create-react-app).<br>
-Please refer to its documentation:
+This package provides a `react-scripts` fork for using ReasonML. To bootstrap a new app
+using React and Reason, run:
 
-* [Getting Started](https://github.com/facebookincubator/create-react-app/blob/master/README.md#getting-started) – How to create a new app.
-* [User Guide](https://github.com/facebookincubator/create-react-app/blob/master/packages/react-scripts/template/README.md) – How to develop apps bootstrapped with Create React App.
+```
+$ yarn create react-app -- --scripts-version reason-scripts
+```
