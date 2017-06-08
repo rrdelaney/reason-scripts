@@ -4,6 +4,8 @@
     "src"
   ],
   "bs-dependencies": [
+    "reason-js",
+    "reason-react"
   ],
   "reason": {
     "react-jsx": true
