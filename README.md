@@ -14,6 +14,36 @@ Reason Scripts provides a JS-like development environment for developing web app
 compile all Reason code to JS, provide features like reloading and bundling, and seamlessly
 use JS code from Reason.
 
+## Getting Started
+
+To create a new app using Reason and React, run:
+
+```
+$ yarn create react-app <app-name> -- --scripts-version reason-scripts
+$ cd <app-name>
+```
+
+This will create a new app the the `<app-name>` directory with the following
+directory layout:
+
+```
+<app-name>/
+  README.md
+  node_modules/
+  package.json
+  bsconfig.json
+  .gitignore
+  public/
+    favicon.ico
+    index.html
+  src/
+    index.re
+    index.css
+    app.re
+    App.css
+    logo.svg
+```
+
 ## Features
 
 ### Automatic Compilation of Reason files
