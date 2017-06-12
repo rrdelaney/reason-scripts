@@ -100,10 +100,10 @@ module.exports = function(
 
   if (useYarn) {
     command = 'yarnpkg';
-    args = ['add'];
+    args = ['add', '--dev'];
   } else {
     command = 'npm';
-    args = ['install', '--save', verbose && '--verbose'].filter(e => e);
+    args = ['install', '--save-dev', verbose && '--verbose'].filter(e => e);
   }
 
   // Install additional template dependencies, if present
@@ -121,49 +121,22 @@ module.exports = function(
     fs.unlinkSync(templateDependenciesPath);
   }
 
-  // Install react and react-dom for backward compatibility with old CRA cli
-  // which doesn't install react and react-dom along with react-scripts
-  // or template is presetend (via --internal-testing-template)
-  if (!isReactInstalled(appPackage) || template) {
-    args.push('react', 'react-dom');
-
-    console.log(`Installing react and react-dom using ${command}...`);
-    console.log();
-
-    const proc = spawn.sync(command, args, { stdio: 'inherit' });
-    if (proc.status !== 0) {
-      console.error(`\`${command} ${args.join(' ')}\` failed`);
-      return;
-    }
-  }
-
   // Install devDependencies needed by Reason
-  const extraDevDeps = [...args, 'flow-typed', 'flow-bin', 'reasonably-typed'];
-  console.log(`Installing ${chalk.blue('flow-typed')}, ${chalk.blue('flow-bin')}, and ${chalk.blue('reasonably-typed')} using ${command}...`);
+  const extraDevDeps = [
+    ...args,
+    'reason-js',
+    'reason-react',
+    'flow-typed',
+    'flow-bin',
+    'reasonably-typed',
+    'bs-platform'
+  ];
+
+  console.log(`Installing ${chalk.blue('reason-js')}, ${chalk.blue('reason-react')}, ${chalk.blue('flow-typed')}, ${chalk.blue('flow-bin')}, ${chalk.blue('reasonably-typed')}, and ${chalk.blue('bs-platform')} using ${command}...`);
   console.log()
   const devDepsProc = spawn.sync(command, extraDevDeps, { stdio: 'inherit' });
   if (devDepsProc.status !== 0) {
     console.error(`\`${command} ${extraDevDeps.join(' ')}\` failed`);
-    return;
-  }
-
-  // Install dependencies needed by Reason
-  const extraDeps = [...args, 'reason-js', 'reason-react'];
-  console.log(`Installing ${chalk.blue('reason-js')} and ${chalk.blue('reason-react')} using ${command}...`);
-  console.log()
-  const proc = spawn.sync(command, extraDeps, { stdio: 'inherit' });
-  if (proc.status !== 0) {
-    console.error(`\`${command} ${extraDeps.join(' ')}\` failed`);
-    return;
-  }
-
-  // Finally install bs-platform
-  const bsDeps = [...args, 'bs-platform'];
-  console.log(`Installing ${chalk.blue('bs-platform')} using ${command}...`);
-  console.log()
-  const bsProc = spawn.sync(command, bsDeps, { stdio: 'inherit' });
-  if (bsProc.status !== 0) {
-    console.error(`\`${command} ${bsDeps.join(' ')}\` failed`);
     return;
   }
 
