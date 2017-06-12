@@ -138,26 +138,9 @@ module.exports = function(
     }
   }
 
-  // If bs-platform is not globally installed, do it now
-  try {
-    require.resolve('bs-platform');
-  } catch(e) {
-    console.error(e)
-    const npmCommand = 'npm';
-    const bsArgs = ['install', '-g', 'bs-platform'];
-
-    console.log(`Globally installing bs-platform using ${npmCommand}...`);
-    console.log()
-    const bsProc = spawn.sync(npmCommand, bsArgs, { stdio: 'inherit' });
-    if (bsProc.status !== 0) {
-      console.error(`\`${npmCommand} ${bsArgs.join(' ')}\` failed`);
-      return;
-    }
-  }
-
   // Install devDependencies needed by Reason
-  const extraDevDeps = [...args, 'flow-typed', 'reasonably-typed'];
-  console.log(`Installing flow-typed and reasonably-typed using ${command}...`);
+  const extraDevDeps = [...args, 'bs-platform', 'flow-typed', 'reasonably-typed'];
+  console.log(`Installing bs-platform, flow-typed, and reasonably-typed using ${command}...`);
   console.log()
   const devDepsProc = spawn.sync(command, extraDevDeps, { stdio: 'inherit' });
   if (devDepsProc.status !== 0) {
