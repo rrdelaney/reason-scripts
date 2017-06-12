@@ -139,8 +139,8 @@ module.exports = function(
   }
 
   // Install devDependencies needed by Reason
-  const extraDevDeps = [...args, 'bs-platform', 'flow-typed', 'reasonably-typed'];
-  console.log(`Installing bs-platform, flow-typed, and reasonably-typed using ${command}...`);
+  const extraDevDeps = [...args, 'bs-platform', 'flow-typed', 'flow-bin', 'reasonably-typed'];
+  console.log(`Installing bs-platform, flow-typed, flow-bin, and reasonably-typed using ${command}...`);
   console.log()
   const devDepsProc = spawn.sync(command, extraDevDeps, { stdio: 'inherit' });
   if (devDepsProc.status !== 0) {
