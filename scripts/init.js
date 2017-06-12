@@ -38,15 +38,8 @@ module.exports = function(
   const useYarn = fs.existsSync(path.join(appPath, 'yarn.lock'));
 
   // Copy over some of the devDependencies
-  appPackage.dependencies = appPackage.dependencies || {
-    "reason-js": "*",
-    "reason-react": "*"
-  };
-
-  appPackage.devDependencies = appPackage.devDependencies || {
-    "flow-typed": "*",
-    "reasonably-typed": "*"
-  };
+  appPackage.dependencies = appPackage.dependencies || {};
+  appPackage.devDependencies = appPackage.devDependencies || {};
 
   // Setup the script rules
   appPackage.scripts = {
@@ -145,15 +138,25 @@ module.exports = function(
     }
   }
 
+  // Install devDependencies needed by Reason
+  const extraDevDeps = [...args, 'flow-typed', 'reasonably-typed'];
+  console.log(`Installing flow-typed and reasonably-typed using ${command}...`);
+  console.log()
+  const devDepsProc = spawn.sync(command, extraDevDeps, { stdio: 'inherit' });
+  if (devDepsProc.status !== 0) {
+    console.error(`\`${command} ${extraDevDeps.join(' ')}\` failed`);
+    return;
+  }
+
   // Install dependencies needed by Reason
-  // const extraDeps = [...args, 'reason-js', 'reason-react'];
-  // console.log(`Installing reason-js and reason-react using ${command}...`);
-  // console.log()
-  // const proc = spawn.sync(command, extraDeps, { stdio: 'inherit' });
-  // if (proc.status !== 0) {
-  //   console.error(`\`${command} ${extraDeps.join(' ')}\` failed`);
-  //   return;
-  // }
+  const extraDeps = [...args, 'reason-js', 'reason-react'];
+  console.log(`Installing reason-js and reason-react using ${command}...`);
+  console.log()
+  const proc = spawn.sync(command, extraDeps, { stdio: 'inherit' });
+  if (proc.status !== 0) {
+    console.error(`\`${command} ${extraDeps.join(' ')}\` failed`);
+    return;
+  }
 
   // Display the most elegant way to cd.
   // This needs to handle an undefined originalDirectory for
