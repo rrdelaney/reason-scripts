@@ -142,10 +142,11 @@ module.exports = function(
   try {
     require.resolve('bs-platform');
   } catch(e) {
+    console.error(e)
     const npmCommand = 'npm';
     const bsArgs = ['install', '-g', 'bs-platform'];
 
-    console.log(`Globally installing bs-platform using ${command}...`);
+    console.log(`Globally installing bs-platform using ${npmCommand}...`);
     console.log()
     const bsProc = spawn.sync(npmCommand, bsArgs, { stdio: 'inherit' });
     if (bsProc.status !== 0) {
