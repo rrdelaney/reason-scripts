@@ -1,6 +1,8 @@
-<img src="https://github.com/rrdelaney/reason-scripts/blob/master/docs/cra.png">
-
-<h1 align="center">Reason Scripts</h1>
+<h1 align="center">
+  <img height="300" src="https://github.com/rrdelaney/reason-scripts/blob/master/docs/cra.png">
+  <br>
+  Reason Scripts
+ </h1>
 
 <pre align="center">
   $ yarn create react-app my-app -- --scripts-version reason-scripts
