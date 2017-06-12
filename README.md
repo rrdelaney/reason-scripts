@@ -1,3 +1,5 @@
+<img src="https://github.com/rrdelaney/reason-scripts/blob/master/docs/cra.png">
+
 <h1 align="center">Reason Scripts</h1>
 
 <pre align="center">
