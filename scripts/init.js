@@ -139,8 +139,8 @@ module.exports = function(
   }
 
   // Install devDependencies needed by Reason
-  const extraDevDeps = [...args, 'bs-platform', 'flow-typed', 'flow-bin', 'reasonably-typed'];
-  console.log(`Installing bs-platform, flow-typed, flow-bin, and reasonably-typed using ${command}...`);
+  const extraDevDeps = [...args, 'flow-typed', 'flow-bin', 'reasonably-typed'];
+  console.log(`Installing flow-typed, flow-bin, and reasonably-typed using ${command}...`);
   console.log()
   const devDepsProc = spawn.sync(command, extraDevDeps, { stdio: 'inherit' });
   if (devDepsProc.status !== 0) {
@@ -155,6 +155,16 @@ module.exports = function(
   const proc = spawn.sync(command, extraDeps, { stdio: 'inherit' });
   if (proc.status !== 0) {
     console.error(`\`${command} ${extraDeps.join(' ')}\` failed`);
+    return;
+  }
+
+  // Finally install bs-platform
+  const extraDevDeps = [...args, 'flow-typed', 'flow-bin', 'reasonably-typed'];
+  console.log(`Installing flow-typed, flow-bin, and reasonably-typed using ${command}...`);
+  console.log()
+  const devDepsProc = spawn.sync(command, extraDevDeps, { stdio: 'inherit' });
+  if (devDepsProc.status !== 0) {
+    console.error(`\`${command} ${extraDevDeps.join(' ')}\` failed`);
     return;
   }
 
