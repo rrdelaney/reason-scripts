@@ -140,7 +140,7 @@ module.exports = function(
 
   // Install devDependencies needed by Reason
   const extraDevDeps = [...args, 'flow-typed', 'flow-bin', 'reasonably-typed'];
-  console.log(`Installing flow-typed, flow-bin, and reasonably-typed using ${command}...`);
+  console.log(`Installing ${chalk.blue('flow-typed')}, ${chalk.blue('flow-bin')}, and ${chalk.blue('reasonably-typed')} using ${command}...`);
   console.log()
   const devDepsProc = spawn.sync(command, extraDevDeps, { stdio: 'inherit' });
   if (devDepsProc.status !== 0) {
@@ -150,7 +150,7 @@ module.exports = function(
 
   // Install dependencies needed by Reason
   const extraDeps = [...args, 'reason-js', 'reason-react'];
-  console.log(`Installing reason-js and reason-react using ${command}...`);
+  console.log(`Installing ${chalk.blue('reason-js')} and ${chalk.blue('reason-react')} using ${command}...`);
   console.log()
   const proc = spawn.sync(command, extraDeps, { stdio: 'inherit' });
   if (proc.status !== 0) {
@@ -159,12 +159,12 @@ module.exports = function(
   }
 
   // Finally install bs-platform
-  const extraDevDeps = [...args, 'flow-typed', 'flow-bin', 'reasonably-typed'];
-  console.log(`Installing flow-typed, flow-bin, and reasonably-typed using ${command}...`);
+  const bsDeps = [...args, 'bs-platform'];
+  console.log(`Installing ${chalk.blue('bs-platform')} using ${command}...`);
   console.log()
-  const devDepsProc = spawn.sync(command, extraDevDeps, { stdio: 'inherit' });
-  if (devDepsProc.status !== 0) {
-    console.error(`\`${command} ${extraDevDeps.join(' ')}\` failed`);
+  const bsProc = spawn.sync(command, bsDeps, { stdio: 'inherit' });
+  if (bsProc.status !== 0) {
+    console.error(`\`${command} ${bsDeps.join(' ')}\` failed`);
     return;
   }
 
