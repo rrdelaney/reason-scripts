@@ -47,6 +47,7 @@ module.exports = function(
     build: 'react-scripts build',
     test: 'react-scripts test --env=jsdom',
     eject: 'react-scripts eject',
+    postinstall: 'flow-typed install && retyped --flow-typed'
   };
 
   fs.writeFileSync(
@@ -126,7 +127,7 @@ module.exports = function(
   // or template is presetend (via --internal-testing-template)
   if (!isReactInstalled(appPackage) || template) {
     args.push('react', 'react-dom');
-    
+
     console.log(`Installing react and react-dom using ${command}...`);
     console.log();
 
