@@ -47,7 +47,7 @@ module.exports = function(
     build: 'react-scripts build',
     test: 'react-scripts test --env=jsdom',
     eject: 'react-scripts eject',
-    // postinstall: 'flow-typed install && retyped --flow-typed'
+    postinstall: 'flow-typed install && retyped --flow-typed'
   };
 
   fs.writeFileSync(
@@ -138,35 +138,35 @@ module.exports = function(
     }
   }
 
-  // // Install devDependencies needed by Reason
-  // const extraDevDeps = [...args, 'flow-typed', 'flow-bin', 'reasonably-typed'];
-  // console.log(`Installing flow-typed, flow-bin, and reasonably-typed using ${command}...`);
-  // console.log()
-  // const devDepsProc = spawn.sync(command, extraDevDeps, { stdio: 'inherit' });
-  // if (devDepsProc.status !== 0) {
-  //   console.error(`\`${command} ${extraDevDeps.join(' ')}\` failed`);
-  //   return;
-  // }
-  //
-  // // Install dependencies needed by Reason
-  // const extraDeps = [...args, 'reason-js', 'reason-react'];
-  // console.log(`Installing reason-js and reason-react using ${command}...`);
-  // console.log()
-  // const proc = spawn.sync(command, extraDeps, { stdio: 'inherit' });
-  // if (proc.status !== 0) {
-  //   console.error(`\`${command} ${extraDeps.join(' ')}\` failed`);
-  //   return;
-  // }
-  //
-  // // Finally install bs-platform
-  // const extraDevDeps = [...args, 'flow-typed', 'flow-bin', 'reasonably-typed'];
-  // console.log(`Installing flow-typed, flow-bin, and reasonably-typed using ${command}...`);
-  // console.log()
-  // const devDepsProc = spawn.sync(command, extraDevDeps, { stdio: 'inherit' });
-  // if (devDepsProc.status !== 0) {
-  //   console.error(`\`${command} ${extraDevDeps.join(' ')}\` failed`);
-  //   return;
-  // }
+  // Install devDependencies needed by Reason
+  const extraDevDeps = [...args, 'flow-typed', 'flow-bin', 'reasonably-typed'];
+  console.log(`Installing flow-typed, flow-bin, and reasonably-typed using ${command}...`);
+  console.log()
+  const devDepsProc = spawn.sync(command, extraDevDeps, { stdio: 'inherit' });
+  if (devDepsProc.status !== 0) {
+    console.error(`\`${command} ${extraDevDeps.join(' ')}\` failed`);
+    return;
+  }
+
+  // Install dependencies needed by Reason
+  const extraDeps = [...args, 'reason-js', 'reason-react'];
+  console.log(`Installing reason-js and reason-react using ${command}...`);
+  console.log()
+  const proc = spawn.sync(command, extraDeps, { stdio: 'inherit' });
+  if (proc.status !== 0) {
+    console.error(`\`${command} ${extraDeps.join(' ')}\` failed`);
+    return;
+  }
+
+  // Finally install bs-platform
+  const extraDevDeps = [...args, 'flow-typed', 'flow-bin', 'reasonably-typed'];
+  console.log(`Installing flow-typed, flow-bin, and reasonably-typed using ${command}...`);
+  console.log()
+  const devDepsProc = spawn.sync(command, extraDevDeps, { stdio: 'inherit' });
+  if (devDepsProc.status !== 0) {
+    console.error(`\`${command} ${extraDevDeps.join(' ')}\` failed`);
+    return;
+  }
 
   // Display the most elegant way to cd.
   // This needs to handle an undefined originalDirectory for
