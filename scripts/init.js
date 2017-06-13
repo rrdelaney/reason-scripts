@@ -126,6 +126,7 @@ module.exports = function(
     ...args,
     'reason-js',
     'reason-react',
+    'bs-jest',
     'flow-typed',
     'flow-bin',
     'reasonably-typed',

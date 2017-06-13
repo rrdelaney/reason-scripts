@@ -239,10 +239,7 @@ module.exports = {
         test: /\.(re|rei)$/,
         use: [
           {
-            loader: require.resolve('bs-loader'),
-            options: {
-              module: 'es6'
-            }
+            loader: require.resolve('bs-loader')
           }
         ]
       }
