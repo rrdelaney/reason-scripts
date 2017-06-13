@@ -124,7 +124,6 @@ module.exports = function(
   // Install devDependencies needed by Reason
   const extraDevDeps = [
     ...args,
-    'reason-js',
     'reason-react',
     'bs-jest',
     'flow-typed',
@@ -133,7 +132,7 @@ module.exports = function(
     'bs-platform'
   ];
 
-  console.log(`Installing ${chalk.blue('reason-js')}, ${chalk.blue('reason-react')}, ${chalk.blue('flow-typed')}, ${chalk.blue('flow-bin')}, ${chalk.blue('reasonably-typed')}, and ${chalk.blue('bs-platform')} using ${command}...`);
+  console.log(`Installing ${chalk.blue('reason-react')}, ${chalk.blue('flow-typed')}, ${chalk.blue('flow-bin')}, ${chalk.blue('reasonably-typed')}, and ${chalk.blue('bs-platform')} using ${command}...`);
   console.log()
   const devDepsProc = spawn.sync(command, extraDevDeps, { stdio: 'inherit' });
   if (devDepsProc.status !== 0) {
