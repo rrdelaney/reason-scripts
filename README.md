@@ -46,9 +46,15 @@ directory layout:
 
 ## Features
 
+### Reason Entrypoint
+
+The entry point to the app is `src/index.re`. From the start your new
+app will be based on Reason, but can seamlessly interop with existing JS
+files and projects!
+
 ### Automatic Compilation of Reason files
 
-Any Reason file will be automatically converted to a JS file. For example, a file called
+Any Reason file will be automatically compiled to a JS file. For example, a file called
 `math_fns.re` can be required by a JS file:
 
 ```js
@@ -56,6 +62,34 @@ import { add } from './math_fns.re'
 
 const sum = add(1, 4)
 ```
+
+### Jest Integration
+
+Reason Scripts will automatically configure a [Jest](https://facebook.github.io/jest) environment
+to test Reason code. Any code found in a file ending with `_test.re` will be considered a test
+and run with Jest. From these files, the normal Jest API can be used interacting with any
+other modules defined in your app. For example:
+
+```reason
+/* math_fns.re */
+
+let add x y => x + y;
+```
+
+```reason
+/* math_fns_test.re */
+
+open Jest;
+
+test "addition" (fun () => {
+  let num_1 = 10;
+  let num_2 = 12;
+
+  expect (Math_fns.add num_1 num_2) |> toBe 22;
+});
+```
+
+For more documentation on the Jest API, see [bs-jest](https://github.com/BuckleTypes/bs-jest)
 
 ### Importing non-Reason files
 
@@ -75,11 +109,6 @@ let logo : string = [%bs.raw {|require('./logo.svg')|}];
 
 Reason Scripts automatically generates an interface to any library installed with npm and
 [FlowTyped](https://github.com/flowtype/flow-typed)
-
-### Jest Integration [WIP]
-
-Reason Scripts will automatically configure a [Jest](https://facebook.github.io/jest) environment
-to test Reason code.
 
 ### Importing JS files [WIP]
 
