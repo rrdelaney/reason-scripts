@@ -29,6 +29,11 @@ module.exports = (resolve, rootDir, isEjecting) => {
     testMatch: [
       '<rootDir>/src/**/*test.re',
     ],
+    moduleFileExtensions: [
+      're',
+      'js',
+      'ml'
+    ],
     testEnvironment: 'node',
     testURL: 'http://localhost',
     transform: {
