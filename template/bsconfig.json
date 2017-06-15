@@ -8,6 +8,6 @@
     "bs-jest"
   ],
   "reason": {
-    "react-jsx": true
+    "react-jsx": 2
   }
 }
