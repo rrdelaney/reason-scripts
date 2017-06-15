@@ -21,10 +21,10 @@ To create a new app using Reason and React, run:
 ```
 $ yarn create react-app <app-name> -- --scripts-version reason-scripts
 $ cd <app-name>
+$ yarn start
 ```
 
-This will create a new app the the `<app-name>` directory with the following
-directory layout:
+This will create a new app the the `<app-name>` directory with the following layout:
 
 ```
 <app-name>/
