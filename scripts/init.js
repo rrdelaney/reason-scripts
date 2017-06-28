@@ -128,8 +128,7 @@ module.exports = function(
     'bs-jest',
     'flow-typed',
     'flow-bin',
-    'reasonably-typed',
-    'bs-platform'
+    'reasonably-typed'
   ];
 
   console.log(`Installing ${chalk.blue('reason-react')}, ${chalk.blue('flow-typed')}, ${chalk.blue('flow-bin')}, ${chalk.blue('reasonably-typed')}, and ${chalk.blue('bs-platform')} using ${command}...`);
