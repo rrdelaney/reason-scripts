@@ -1,4 +1,4 @@
-[%bs.raw {|require('./App.css')|}];
+[%bs.raw {|require('./app.css')|}];
 
 let logo: string = [%bs.raw "require('./logo.svg')"];
 
