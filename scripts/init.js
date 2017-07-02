@@ -131,7 +131,7 @@ module.exports = function(
     'reasonably-typed'
   ];
 
-  console.log(`Installing ${chalk.blue('reason-react')}, ${chalk.blue('flow-typed')}, ${chalk.blue('flow-bin')}, ${chalk.blue('reasonably-typed')}, and ${chalk.blue('bs-platform')} using ${command}...`);
+  console.log(`Installing ${chalk.blue('reason-react')}, ${chalk.blue('flow-typed')}, ${chalk.blue('flow-bin')}, and ${chalk.blue('reasonably-typed') using ${command}...`);
   console.log()
   const devDepsProc = spawn.sync(command, extraDevDeps, { stdio: 'inherit' });
   if (devDepsProc.status !== 0) {
