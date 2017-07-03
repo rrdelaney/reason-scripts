@@ -31,8 +31,8 @@ module.exports = (resolve, rootDir, isEjecting) => {
     ],
     moduleFileExtensions: [
       're',
-      'js',
-      'ml'
+      'ml',
+      'web.js', 'js', 'json', 'web.jsx', 'jsx'
     ],
     testEnvironment: 'node',
     testURL: 'http://localhost',
