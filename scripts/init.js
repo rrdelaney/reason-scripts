@@ -122,8 +122,6 @@ module.exports = function(
     fs.unlinkSync(templateDependenciesPath);
   }
 
-  console.log(`Linking ${chalk.blue('bs-platform')}...`);
-  console.log();
   const linkProc = spawn.sync('npm', ['link', 'bs-platform'], { stdio: 'inherit' });
   if (linkProc.status !== 0) {
     console.error('`npm link bs-platform` failed. Did you install bs-platform globally?');
