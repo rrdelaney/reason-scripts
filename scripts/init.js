@@ -46,7 +46,8 @@ module.exports = function(
     start: 'react-scripts start',
     build: 'react-scripts build',
     test: 'react-scripts test --env=jsdom',
-    eject: 'react-scripts eject'
+    eject: 'react-scripts eject',
+    prepare: 'npm link bs-platform'
   };
 
   fs.writeFileSync(
@@ -121,6 +122,14 @@ module.exports = function(
     fs.unlinkSync(templateDependenciesPath);
   }
 
+  console.log(`Linking ${chalk.blue('bs-platform')}...`);
+  console.log();
+  const linkProc = spawn.sync('npm', ['link', 'bs-platform'], { stdio: 'inherit' });
+  if (linkProc.status !== 0) {
+    console.error('`npm link bs-platform` failed. Did you install bs-platform globally?');
+    return;
+  }
+
   // Install devDependencies needed by Reason
   const extraDevDeps = [
     ...args,
@@ -132,7 +141,7 @@ module.exports = function(
   ];
 
   console.log(`Installing ${chalk.blue('reason-react')}, ${chalk.blue('flow-typed')}, ${chalk.blue('flow-bin')}, and ${chalk.blue('reasonably-typed')} using ${command}...`);
-  console.log()
+  console.log();
   const devDepsProc = spawn.sync(command, extraDevDeps, { stdio: 'inherit' });
   if (devDepsProc.status !== 0) {
     console.error(`\`${command} ${extraDevDeps.join(' ')}\` failed`);
