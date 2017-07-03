@@ -47,6 +47,8 @@ This will create a new app the the `<app-name>` directory with the following lay
 
 ## Features
 
+### [Everything from Create React App](https://github.com/facebookincubator/create-react-app/blob/master/packages/react-scripts/template/README.md)
+
 ### Reason Entrypoint
 
 The entry point to the app is `src/index.re`. From the start your new
