@@ -1,6 +1,6 @@
 {
   "name": "reason-scripts",
-  "version": "0.5.0",
+  "version": "0.6.0",
   "description": "Scripts for Create React App with ReasonML.",
   "repository": "rrdelaney/reason-scripts",
   "license": "BSD-3-Clause",
