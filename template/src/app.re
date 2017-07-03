@@ -1,6 +1,6 @@
 [%bs.raw {|require('./app.css')|}];
 
-let logo: string = [%bs.raw "require('./logo.svg')"];
+external logo : string = "" [@@bs.module "./logo.svg"];
 
 let component = ReasonReact.statelessComponent "App";
 
