@@ -6,7 +6,7 @@ let component = ReasonReact.statelessComponent "App";
 
 let make ::message _children => {
   ...component,
-  render: fun () _self =>
+  render: fun _self =>
     <div className="App">
       <div className="App-header">
         <img src=logo className="App-logo" alt="logo" />
