@@ -10,12 +10,12 @@ let make ::message _children => {
     <div className="App">
       <div className="App-header">
         <img src=logo className="App-logo" alt="logo" />
-        <h2> (ReactRe.stringToElement message) </h2>
+        <h2> (ReasonReact.stringToElement message) </h2>
       </div>
       <p className="App-intro">
-        (ReactRe.stringToElement "To get started, edit")
-        <code> (ReactRe.stringToElement " src/App.re ") </code>
-        (ReactRe.stringToElement "and save to reload.")
+        (ReasonReact.stringToElement "To get started, edit")
+        <code> (ReasonReact.stringToElement " src/App.re ") </code>
+        (ReasonReact.stringToElement "and save to reload.")
       </p>
     </div>
 };
