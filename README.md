@@ -9,7 +9,7 @@
 </pre>
 
 Reason Scripts provides a JS-like development environment for developing web apps with the
-[Reason](https://facebook.github.io/reason) programming language and
+[Reason](https://reasonml.github.io/) programming language and
 [React](https://facebook.github.io/react). It bootstraps an environment to automatically
 compile all Reason code to JS, provide features like reloading and bundling, and seamlessly
 use JS code from Reason.
