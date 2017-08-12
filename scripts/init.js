@@ -125,16 +125,23 @@ module.exports = function(
   }
 
   // Install devDependencies needed by Reason
-  const extraDevDeps = [
-    ...args,
+  const reasonDevDeps = [
     'reason-react',
-    'bs-jest',
-    'flow-typed',
-    'flow-bin',
-    'reasonably-typed'
+    'bs-jest'
   ];
 
-  console.log(`Installing ${chalk.blue('reason-react')}, ${chalk.blue('flow-typed')}, ${chalk.blue('flow-bin')}, and ${chalk.blue('reasonably-typed')} using ${command}...`);
+  const extraDevDeps = [
+    ...args,
+    ...reasonDevDeps
+  ];
+
+  const installMessage = 'Installing ' +
+    reasonDevDeps.slice(0, -1).map(dep => chalk.blue(dep)).join(', ') +
+    ', and ' +
+    chalk.blue(reasonDevDeps[reasonDevDeps.length - 1]) +
+    ' using ' + command + '...'
+
+  console.log(installMessage);
   console.log();
   const devDepsProc = spawn.sync(command, extraDevDeps, { stdio: 'inherit' });
   if (devDepsProc.status !== 0) {

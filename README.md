@@ -115,28 +115,3 @@ or any other kind of file (like SVG's) with:
 ```reason
 let logo : string = [%bs.raw {|require('./logo.svg')|}];
 ```
-
-### FlowTyped Integration [WIP]
-
-Reason Scripts automatically generates an interface to any library installed with npm and
-[FlowTyped](https://github.com/flowtype/flow-typed)
-
-### Importing JS files [WIP]
-
-If you type the exports of a JS file with Flow types, you can use the file directly
-in Reason. For example, in the file `math_fns.js`:
-
-```js
-// @flow
-// math_fns.js
-
-export function add(x: number, y: number): number {
-  return x + y;
-}
-```
-
-you will be able to access `add` in a Reason file with:
-
-```reason
-let run_func x y => Math_fns x y;
-```
