@@ -2,13 +2,13 @@
   "name": "reason-scripts",
   "version": "0.6.6",
   "description": "Scripts for Create React App with ReasonML.",
-  "repository": "rrdelaney/reason-scripts",
+  "repository": "reasonml-community/reason-scripts",
   "license": "BSD-3-Clause",
   "engines": {
     "node": ">=6"
   },
   "bugs": {
-    "url": "https://github.com/rrdelaney/reason-scripts/issues"
+    "url": "https://github.com/reasonml-community/reason-scripts/issues"
   },
   "files": [
     "bin",

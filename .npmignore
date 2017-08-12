@@ -1,2 +1,5 @@
 /fixtures
 /docs
+/tasks
+.travis.yml
+appveyor.yml
