@@ -115,3 +115,29 @@ or any other kind of file (like SVG's) with:
 ```reason
 let logo : string = [%bs.raw {|require('./logo.svg')|}];
 ```
+
+## Help, Tips, and Tricks
+
+<p><details>
+<summary><b>My editor isn't autocompleting</b></summary>
+
+Editor support is provided by Merlin. To generate a `.merlin` file, run the app
+with `npm start` or `yarn start`.
+
+See our full editor integration guide here: https://reasonml.github.io/guide/editor-tools/editors-plugins
+</details></p>
+
+
+<p><details>
+<summary><b>I don't want reason-scripts to clear my terminal</b></summary>
+
+Use `FORCE_COLOR=true reason-scripts start | cat -` as your start command instead
+</details></p>
+
+<p><details>
+<summary><b>Reason is awesome! Where can I learn more?</b></summary>
+
+Checkout our fancy website: https://reasonml.github.io/!
+
+We also have a very active Discord to come talk about Reason, and ask for help: https://discordapp.com/invite/reasonml
+</details></p>
