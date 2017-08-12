@@ -16,6 +16,8 @@ use JS code from Reason.
 
 ## Getting Started
 
+### Using [Yarn](https://yarnpkg.com/)
+
 > Note that using `yarn create` requires Yarn 0.25 or later
 
 To create a new app using Reason and React, run:
@@ -27,7 +29,18 @@ $ cd <app-name>
 $ yarn start
 ```
 
-This will create a new app the the `<app-name>` directory with the following layout:
+### Using npm
+
+```
+$ npm install -g bs-platform create-react-app
+$ create-react-app <app-name> --scripts-version reason-scripts
+$ cd <app-name>
+$ npm start
+```
+
+### Directory Layout
+
+Creating a new app makes an `<app-name>` directory with the following layout:
 
 ```
 <app-name>/
