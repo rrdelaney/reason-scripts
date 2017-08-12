@@ -131,7 +131,7 @@ See our full editor integration guide here: https://reasonml.github.io/guide/edi
 <p><details>
 <summary><b>I don't want reason-scripts to clear my terminal</b></summary>
 
-Use `FORCE_COLOR=true reason-scripts start | cat -` as your start command instead
+Use `FORCE_COLOR=true react-scripts start | cat -` as your start command instead
 </details></p>
 
 <p><details>
