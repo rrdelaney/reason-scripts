@@ -14,6 +14,8 @@ Reason Scripts provides a JS-like development environment for developing web app
 compile all Reason code to JS, provide features like reloading and bundling, and seamlessly
 use JS code from Reason.
 
+[![Build Status](https://travis-ci.org/reasonml-community/reason-scripts.svg?branch=master)](https://travis-ci.org/reasonml-community/reason-scripts)
+
 ## Getting Started
 
 ### Using [Yarn](https://yarnpkg.com/)
