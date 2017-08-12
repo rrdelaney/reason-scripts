@@ -115,7 +115,7 @@ test "addition" (fun () => {
 });
 ```
 
-For more documentation on the Jest API, see [bs-jest](https://github.com/BuckleTypes/bs-jest)
+For more documentation on the Jest API, see [bs-jest](https://github.com/reasonml-community/bs-jest)
 
 ### Importing non-Reason files
 
