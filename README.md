@@ -16,6 +16,8 @@ use JS code from Reason.
 
 ## Getting Started
 
+> Note that using `yarn create` requires Yarn 0.25 or later
+
 To create a new app using Reason and React, run:
 
 ```
