@@ -15,6 +15,7 @@ compile all Reason code to JS, provide features like reloading and bundling, and
 use JS code from Reason.
 
 [![Build Status](https://travis-ci.org/reasonml-community/reason-scripts.svg?branch=master)](https://travis-ci.org/reasonml-community/reason-scripts)
+[![Build status](https://ci.appveyor.com/api/projects/status/ccnybhby3xbr9022?svg=true)](https://ci.appveyor.com/project/rrdelaney/reason-scripts)
 
 ## Getting Started
 
