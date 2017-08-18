@@ -27,7 +27,7 @@ module.exports = (resolve, rootDir, isEjecting) => {
     setupFiles: [resolve('config/polyfills.js')],
     setupTestFrameworkScriptFile: setupTestsFile,
     testMatch: [
-      '<rootDir>/src/**/*test.re',
+      '<rootDir>/src/**/*test.{re,js}',
     ],
     moduleFileExtensions: [
       're',

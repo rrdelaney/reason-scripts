@@ -95,7 +95,7 @@ const sum = add(1, 4)
 ### Jest Integration
 
 Reason Scripts will automatically configure a [Jest](https://facebook.github.io/jest) environment
-to test Reason code. Any code found in a file ending with `_test.re` will be considered a test
+to test Reason code. Any code found in a file ending with `_test.re` or `test.js` will be considered a test
 and run with Jest. From these files, the normal Jest API can be used interacting with any
 other modules defined in your app. For example:
 
@@ -116,6 +116,22 @@ test "addition" (fun () => {
 
   expect (Math_fns.add num_1 num_2) |> toBe 22;
 });
+```
+
+Or if you prefer writing your tests in JavaScript, just don't forget to import the tested module:
+
+```js
+/* maths_fns.test.js */
+
+import Math_fns from './math_fns.re'
+
+test('addition', () => {
+  const num1 = 10
+  const num2 = 12
+
+  expect(Math_fns.add(num1, num2)).toBe(22)
+})
+
 ```
 
 For more documentation on the Jest API, see [bs-jest](https://github.com/reasonml-community/bs-jest)
