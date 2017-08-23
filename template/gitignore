@@ -12,6 +12,7 @@
 # bucklescript
 /lib
 /types
+.merlin
 
 # misc
 .DS_Store
