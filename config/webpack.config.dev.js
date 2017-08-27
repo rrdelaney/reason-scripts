@@ -94,7 +94,7 @@ module.exports = {
     // We also include JSX as a common component filename extension to support
     // some tools, although we do not recommend using it, see:
     // https://github.com/facebookincubator/create-react-app/issues/290
-    extensions: ['.re', '.web.js', '.js', '.json', '.web.jsx', '.jsx'],
+    extensions: ['.re', '.ml', '.web.js', '.js', '.json', '.web.jsx', '.jsx'],
     alias: {
       // @remove-on-eject-begin
       // Resolve Babel runtime relative to react-scripts.
@@ -160,6 +160,7 @@ module.exports = {
         exclude: [
           /\.html$/,
           /\.(js|jsx)$/,
+          /\.(ml|mli)$/,
           /\.(re|rei)$/,
           /\.css$/,
           /\.json$/,
@@ -238,7 +239,7 @@ module.exports = {
         ],
       },
       {
-        test: /\.(re|rei)$/,
+        test: /\.(re|rei|ml|mli)$/,
         use: [
           {
             loader: require.resolve('bs-loader')
