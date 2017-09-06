@@ -81,10 +81,10 @@ The entry point to the app is `src/index.re`. From the start your new
 app will be based on Reason, but can seamlessly interop with existing JS
 files and projects!
 
-### Automatic Compilation of Reason files
+### Automatic Compilation of Reason/Ocaml files
 
-Any Reason file will be automatically compiled to a JS file. For example, a file called
-`math_fns.re` can be required by a JS file:
+Any Reason/Ocaml file will be automatically compiled to a JS file. For example,
+a file called `math_fns.re` can be required by a JS file:
 
 ```js
 import { add } from './math_fns.re'
@@ -95,9 +95,9 @@ const sum = add(1, 4)
 ### Jest Integration
 
 Reason Scripts will automatically configure a [Jest](https://facebook.github.io/jest) environment
-to test Reason code. Any code found in a file ending with `_test.re` or `test.js` will be considered a test
-and run with Jest. From these files, the normal Jest API can be used interacting with any
-other modules defined in your app. For example:
+to test Reason code. Any code found in a file ending with `_test.re`, `_test.ml`
+or `test.js` will be considered a test and run with Jest. From these files, the normal
+Jest API can be used interacting with any other modules defined in your app. For example:
 
 ```reason
 /* math_fns.re */
