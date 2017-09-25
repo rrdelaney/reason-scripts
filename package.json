@@ -1,6 +1,6 @@
 {
   "name": "reason-scripts",
-  "version": "0.6.11-2",
+  "version": "0.6.11",
   "description": "Scripts for Create React App with ReasonML.",
   "repository": "reasonml-community/reason-scripts",
   "license": "BSD-3-Clause",
@@ -28,7 +28,7 @@
     "babel-loader": "7.0.0",
     "babel-preset-react-app": "^3.0.1",
     "babel-runtime": "6.23.0",
-    "bs-loader": "^1.8.0-2",
+    "bs-loader": "^1.8.0",
     "case-sensitive-paths-webpack-plugin": "2.1.1",
     "chalk": "1.1.3",
     "css-loader": "0.28.4",
