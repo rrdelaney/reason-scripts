@@ -102,7 +102,7 @@ Jest API can be used interacting with any other modules defined in your app. For
 ```reason
 /* math_fns.re */
 
-let add x y => x + y;
+let add = (x, y) => x + y;
 ```
 
 ```reason
@@ -110,11 +110,11 @@ let add x y => x + y;
 
 open Jest;
 
-test "addition" (fun () => {
+test("addition", () => {
   let num_1 = 10;
   let num_2 = 12;
 
-  expect (Math_fns.add num_1 num_2) |> toBe 22;
+  expect(Math_fns.add num_1 num_2) |> toBe(22);
 });
 ```
 
