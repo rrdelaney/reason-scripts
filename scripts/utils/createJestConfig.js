@@ -1,11 +1,9 @@
 // @remove-file-on-eject
 /**
  * Copyright (c) 2015-present, Facebook, Inc.
- * All rights reserved.
  *
- * This source code is licensed under the BSD-style license found in the
- * LICENSE file in the root directory of this source tree. An additional grant
- * of patent rights can be found in the PATENTS file in the same directory.
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
  */
 'use strict';
 
@@ -29,22 +27,33 @@ module.exports = (resolve, rootDir, isEjecting) => {
     testMatch: [
       '<rootDir>/src/**/*test.{ml,re,js}',
     ],
-    moduleFileExtensions: [
-      're',
-      'ml',
-      'web.js', 'js', 'json', 'web.jsx', 'jsx'
-    ],
     testEnvironment: 'node',
     testURL: 'http://localhost',
     transform: {
-      '^.+\\.(js|jsx)$': isEjecting
+      '^.+\\.(js|jsx|mjs)$': isEjecting
         ? '<rootDir>/node_modules/babel-jest'
         : resolve('config/jest/babelTransform.js'),
       '^.+\\.css$': resolve('config/jest/cssTransform.js'),
       '^.+\\.(re|ml)$': 'bs-loader',
-      '^(?!.*\\.(js|jsx|css|json|re|ml)$)': resolve('config/jest/fileTransform.js'),
+      '^(?!.*\\.(js|jsx|mjs|css|json|re|ml)$)': resolve(
+        'config/jest/fileTransform.js'
+      ),
     },
-    transformIgnorePatterns: ['[/\\\\]node_modules[/\\\\].+\\.(js|jsx|re|ml)$']
+    transformIgnorePatterns: ['[/\\\\]node_modules[/\\\\].+\\.(js|jsx|mjs|re|ml)$'],
+    moduleNameMapper: {
+      '^react-native$': 'react-native-web',
+    },
+    moduleFileExtensions: [
+      're',
+      'ml',
+      'web.js',
+      'mjs',
+      'js',
+      'json',
+      'web.jsx',
+      'jsx',
+      'node',
+    ],
   };
   if (rootDir) {
     config.rootDir = rootDir;
