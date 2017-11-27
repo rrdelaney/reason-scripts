@@ -14,7 +14,7 @@ let make = (~message, _children) => {
       </div>
       <p className="App-intro">
         (ReasonReact.stringToElement("To get started, edit"))
-        <code> (ReasonReact.stringToElement(" src/App.re ")) </code>
+        <code> (ReasonReact.stringToElement(" src/app.re ")) </code>
         (ReasonReact.stringToElement("and save to reload."))
       </p>
     </div>
