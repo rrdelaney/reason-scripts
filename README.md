@@ -81,9 +81,9 @@ The entry point to the app is `src/index.re`. From the start your new
 app will be based on Reason, but can seamlessly interop with existing JS
 files and projects!
 
-### Automatic Compilation of Reason/Ocaml files
+### Automatic Compilation of Reason/OCaml files
 
-Any Reason/Ocaml file will be automatically compiled to a JS file. For example,
+Any Reason/OCaml file will be automatically compiled to a JS file. For example,
 a file called `math_fns.re` can be required by a JS file:
 
 ```js
