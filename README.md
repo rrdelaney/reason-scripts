@@ -5,7 +5,7 @@
  </h1>
 
 <pre align="center">
-  $ yarn create react-app my-app -- --scripts-version reason-scripts
+  $ yarn create react-app my-app --scripts-version reason-scripts
 </pre>
 
 Reason Scripts provides a JS-like development environment for developing web apps with the
