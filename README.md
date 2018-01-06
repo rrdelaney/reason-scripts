@@ -32,6 +32,8 @@ $ cd <app-name>
 $ yarn start
 ```
 
+Make sure to install bs-platform globally using `npm` instead of `yarn`.
+
 ### Using npm
 
 ```
