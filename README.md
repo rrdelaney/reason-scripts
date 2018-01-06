@@ -155,6 +155,13 @@ let logo : string = [%bs.raw {|require('./logo.svg')|}];
 ## Help, Tips, and Tricks
 
 <p><details>
+<summary><b>My app won't compile on a fresh install</b></summary>
+
+Try running `npm install` in your project directory. This helps refresh missing dependencies sometimes.
+</details></p>
+
+
+<p><details>
 <summary><b>My editor isn't autocompleting</b></summary>
 
 Editor support is provided by Merlin. To generate a `.merlin` file, run the app
