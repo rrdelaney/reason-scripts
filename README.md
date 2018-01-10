@@ -167,7 +167,7 @@ Try running `npm install` in your project directory. This helps refresh missing 
 Editor support is provided by Merlin. To generate a `.merlin` file, run the app
 with `npm start` or `yarn start`.
 
-See our full editor integration guide here: https://reasonml.github.io/guide/editor-tools/editors-plugins
+See our full editor integration guide here: https://reasonml.github.io/docs/en/editor-plugins.html
 </details></p>
 
 
