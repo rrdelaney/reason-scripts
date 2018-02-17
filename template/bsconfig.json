@@ -1,17 +1,15 @@
 {
   "name": "reason-scripts",
-  "sources": [
-    "src"
-  ],
-  "bs-dependencies": [
-    "reason-react",
-    "bs-jest"
-  ],
+  "sources": ["src"],
+  "bs-dependencies": ["reason-react", "bs-jest"],
   "reason": {
     "react-jsx": 2
   },
-  "bsc-flags": [
-    "-bs-super-errors"
-  ],
-  "refmt": 3
+  "bsc-flags": ["-bs-super-errors"],
+  "refmt": 3,
+  "package-specs": {
+    "module": "es6",
+    "in-source": true
+  },
+  "suffix": ".bs.js"
 }
