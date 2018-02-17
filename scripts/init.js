@@ -40,8 +40,7 @@ module.exports = function(
     start: 'react-scripts start',
     build: 'react-scripts build',
     test: 'react-scripts test --env=jsdom',
-    eject: 'react-scripts eject',
-    prepare: 'npm link bs-platform'
+    eject: 'react-scripts eject'
   };
 
   fs.writeFileSync(
@@ -100,7 +99,6 @@ module.exports = function(
     command = 'npm';
     args = ['install', '--save-dev', verbose && '--verbose'].filter(e => e);
   }
-  args.push('react', 'react-dom');
 
   // Install additional template dependencies, if present
   const templateDependenciesPath = path.join(
@@ -117,14 +115,9 @@ module.exports = function(
     fs.unlinkSync(templateDependenciesPath);
   }
 
-  const linkProc = spawn.sync('npm', ['link', 'bs-platform'], { stdio: 'inherit' });
-  if (linkProc.status !== 0) {
-    console.error('`npm link bs-platform` failed. Did you install bs-platform globally?');
-    return;
-  }
-
   // Install devDependencies needed by Reason
   const reasonDevDeps = [
+    'bs-platform',
     'reason-react',
     'bs-jest'
   ];
