@@ -37,11 +37,13 @@ Make sure to install bs-platform globally using `npm` instead of `yarn`.
 ### Using npm
 
 ```
-$ npm install -g bs-platform create-react-app
-$ create-react-app <app-name> --scripts-version reason-scripts
+$ npm install -g bs-platform
+$ npx create-react-app <app-name> --scripts-version reason-scripts
 $ cd <app-name>
 $ npm start
 ```
+
+*([npx](https://medium.com/@maybekatz/introducing-npx-an-npm-package-runner-55f7d4bd282b) comes with npm 5.2+ and higher, see [instructions for older npm versions](https://gist.github.com/gaearon/4064d3c23a77c74a3614c498a8bb1c5f))*
 
 ### Directory Layout
 
