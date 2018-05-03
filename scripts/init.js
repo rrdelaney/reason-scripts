@@ -126,7 +126,7 @@ module.exports = function(
   // Install devDependencies needed by Reason
   const reasonDevDeps = [
     'reason-react',
-    'bs-jest'
+    '@glennsl/bs-jest'
   ];
 
   const extraDevDeps = [

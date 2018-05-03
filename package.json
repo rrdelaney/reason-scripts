@@ -1,6 +1,6 @@
 {
   "name": "reason-scripts",
-  "version": "0.8.0",
+  "version": "0.9.0-alpha1",
   "description": "Scripts for Create React App with ReasonML.",
   "repository": "reasonml-community/reason-scripts",
   "license": "MIT",
