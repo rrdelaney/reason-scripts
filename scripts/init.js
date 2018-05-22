@@ -119,7 +119,8 @@ module.exports = function(
   const reasonDevDeps = [
     'bs-platform',
     'reason-react',
-    'bs-jest'
+    'bs-jest',
+    'bs-fetch'
   ];
 
   const extraDevDeps = [
