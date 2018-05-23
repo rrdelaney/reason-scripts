@@ -128,6 +128,7 @@ module.exports = function(
       console.error(`\`${command} ${args.join(' ')}\` failed`);
       return;
     }
+  }
 
   // Install devDependencies needed by Reason
   const reasonDevDeps = [
