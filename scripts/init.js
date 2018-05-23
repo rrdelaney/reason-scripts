@@ -134,7 +134,8 @@ module.exports = function(
   const reasonDevDeps = [
     'bs-platform',
     'reason-react',
-    '@glennsl/bs-jest'
+    '@glennsl/bs-jest',
+    'bs-fetch'
   ];
 
   const reasonArgs = [...reasonDevDeps];
