@@ -119,7 +119,7 @@ module.exports = function(
   const reasonDevDeps = [
     'bs-platform',
     'reason-react',
-    'bs-jest'
+    '@glennsl/bs-jest'
   ];
 
   const extraDevDeps = [
