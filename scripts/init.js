@@ -137,6 +137,13 @@ module.exports = function(
     '@glennsl/bs-jest'
   ];
 
+  const reasonArgs = [...reasonDevDeps];
+  if (useYarn) {
+    reasonArgs.unshift('add', '--dev');
+  } else {
+    reasonArgs.unshift('install', '--save-dev')
+  }
+
   const installMessage = 'Installing ' +
     reasonDevDeps.slice(0, -1).map(dep => chalk.blue(dep)).join(', ') +
     ', and ' +
@@ -145,9 +152,9 @@ module.exports = function(
 
   console.log(installMessage);
   console.log();
-  const reasonDepsProc = spawn.sync(command, reasonDevDeps, { stdio: 'inherit' });
+  const reasonDepsProc = spawn.sync(command, reasonArgs, { stdio: 'inherit' });
   if (reasonDepsProc.status !== 0) {
-    console.error(`\`${command} ${reasonDevDeps.join(' ')}\` failed`);
+    console.error(`\`${command} ${reasonArgs.join(' ')}\` failed`);
     return;
   }
 
