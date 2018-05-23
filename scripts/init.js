@@ -40,7 +40,7 @@ module.exports = function(
     start: 'react-scripts start',
     build: 'react-scripts build',
     test: 'react-scripts test --env=jsdom',
-    eject: 'react-scripts eject'
+    eject: 'react-scripts eject',
   };
 
   fs.writeFileSync(
@@ -94,11 +94,12 @@ module.exports = function(
 
   if (useYarn) {
     command = 'yarnpkg';
-    args = ['add', '--dev'];
+    args = ['add'];
   } else {
     command = 'npm';
-    args = ['install', '--save-dev', verbose && '--verbose'].filter(e => e);
+    args = ['install', '--save', verbose && '--verbose'].filter(e => e);
   }
+  args.push('react', 'react-dom');
 
   // Install additional template dependencies, if present
   const templateDependenciesPath = path.join(
@@ -115,18 +116,34 @@ module.exports = function(
     fs.unlinkSync(templateDependenciesPath);
   }
 
+  // Install react and react-dom for backward compatibility with old CRA cli
+  // which doesn't install react and react-dom along with react-scripts
+  // or template is presetend (via --internal-testing-template)
+  if (!isReactInstalled(appPackage) || template) {
+    console.log(`Installing react and react-dom using ${command}...`);
+    console.log();
+
+    const proc = spawn.sync(command, args, { stdio: 'inherit' });
+    if (proc.status !== 0) {
+      console.error(`\`${command} ${args.join(' ')}\` failed`);
+      return;
+    }
+  }
+
   // Install devDependencies needed by Reason
   const reasonDevDeps = [
     'bs-platform',
     'reason-react',
-    'bs-jest',
+    '@glennsl/bs-jest',
     'bs-fetch'
   ];
 
-  const extraDevDeps = [
-    ...args,
-    ...reasonDevDeps
-  ];
+  const reasonArgs = [...reasonDevDeps];
+  if (useYarn) {
+    reasonArgs.unshift('add', '--dev');
+  } else {
+    reasonArgs.unshift('install', '--save-dev')
+  }
 
   const installMessage = 'Installing ' +
     reasonDevDeps.slice(0, -1).map(dep => chalk.blue(dep)).join(', ') +
@@ -136,9 +153,9 @@ module.exports = function(
 
   console.log(installMessage);
   console.log();
-  const devDepsProc = spawn.sync(command, extraDevDeps, { stdio: 'inherit' });
-  if (devDepsProc.status !== 0) {
-    console.error(`\`${command} ${extraDevDeps.join(' ')}\` failed`);
+  const reasonDepsProc = spawn.sync(command, reasonArgs, { stdio: 'inherit' });
+  if (reasonDepsProc.status !== 0) {
+    console.error(`\`${command} ${reasonArgs.join(' ')}\` failed`);
     return;
   }
 
