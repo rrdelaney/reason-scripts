@@ -21,11 +21,12 @@ module.exports = (resolve, rootDir, isEjecting) => {
   // TODO: I don't know if it's safe or not to just use / as path separator
   // in Jest configs. We need help from somebody with Windows to determine this.
   const config = {
-    collectCoverageFrom: ['src/**/*.{js}'],
+    collectCoverageFrom: ['src/**/*.{js,jsx,mjs}'],
     setupFiles: [resolve('config/polyfills.js')],
     setupTestFrameworkScriptFile: setupTestsFile,
     testMatch: [
-      '<rootDir>/src/**/*test.{bs.js,js}',
+      '<rootDir>/src/**/__tests__/**/*.{js,jsx,mjs}',
+      '<rootDir>/src/**/?(*.)(spec|test).{js,jsx,mjs}',
     ],
     testEnvironment: 'node',
     testURL: 'http://localhost',
@@ -44,12 +45,12 @@ module.exports = (resolve, rootDir, isEjecting) => {
     },
     moduleFileExtensions: [
       'web.js',
-      'mjs',
       'js',
       'json',
       'web.jsx',
       'jsx',
       'node',
+      'mjs',
     ],
   };
   if (rootDir) {
