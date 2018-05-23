@@ -32,7 +32,7 @@ $ cd <app-name>
 $ yarn start
 ```
 
-Make sure to install bs-platform globally using `npm` instead of `yarn`.
+Make sure to install `bs-platform` globally using `npm` instead of `yarn`.
 
 ### Using npm
 
@@ -44,6 +44,8 @@ $ npm start
 ```
 
 *([npx](https://medium.com/@maybekatz/introducing-npx-an-npm-package-runner-55f7d4bd282b) comes with npm 5.2+ and higher, see [instructions for older npm versions](https://gist.github.com/gaearon/4064d3c23a77c74a3614c498a8bb1c5f))*
+
+The policy of reason tooling is to support the current LTS release, so please make sure you have Node 8 or later.
 
 ### Directory Layout
 
@@ -160,6 +162,13 @@ let logo : string = [%bs.raw {|require('./logo.svg')|}];
 <summary><b>My app won't compile on a fresh install</b></summary>
 
 Try running `npm install` in your project directory. This helps refresh missing dependencies sometimes.
+</details></p>
+
+
+<p><details>
+<summary><b>I got a SyntaxError after `yarn start` or `npm start`</b></summary>
+Try upgrading your Node to version 8 or later. 
+  
 </details></p>
 
 
