@@ -162,6 +162,8 @@ let logo : string = [%bs.raw {|require('./logo.svg')|}];
 <summary><b>My app won't compile on a fresh install</b></summary>
 
 Try running `npm install` in your project directory. This helps refresh missing dependencies sometimes.
+
+If this still does not work, make sure your file path does not include any spaces.
 </details></p>
 
 
