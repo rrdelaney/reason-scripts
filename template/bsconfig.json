@@ -8,7 +8,7 @@
   "bsc-flags": ["-bs-super-errors"],
   "refmt": 3,
   "package-specs": {
-    "module": "es6",
+    "module": "commonjs",
     "in-source": true
   },
   "suffix": ".bs.js"
