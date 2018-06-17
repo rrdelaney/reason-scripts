@@ -36,12 +36,8 @@ module.exports = (resolve, rootDir, srcRoots) => {
     testEnvironment: 'node',
     testURL: 'http://localhost',
     transform: {
-      '^.+\\.(re|ml)$': isEjecting
-        ? '<rootDir>/node_modules/bs-loader'
-        : 'bs-loader',
-      '^.+\\.(js|jsx|mjs)$': isEjecting
-        ? '<rootDir>/node_modules/babel-jest'
-        : resolve('config/jest/babelTransform.js'),
+      '^.+\\.(re|ml)$': resolve('config/jest/bsLoaderTransform'),
+      '^.+\\.(js|jsx|mjs)$': resolve('config/jest/bsLoaderTransform'),
       '^.+\\.css$': resolve('config/jest/cssTransform.js'),
       '^.+\\.(graphql)$': resolve('config/jest/graphqlTransform.js'),
       '^(?!.*\\.(js|jsx|mjs|css|json|graphql)$)': resolve(
