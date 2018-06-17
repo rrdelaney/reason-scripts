@@ -1,7 +1,6 @@
 ---
 language: node_js
 node_js:
-  - 6
   - 8
 cache:
   directories:
@@ -22,4 +21,4 @@ env:
 matrix:
   include:
     - node_js: 6
-      env: USE_YARN=yes TEST_SUITE=simple
+      env: USE_YARN=yes TEST_SUITE=installs

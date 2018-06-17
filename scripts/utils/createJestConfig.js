@@ -26,11 +26,14 @@ module.exports = (resolve, rootDir, isEjecting) => {
     setupTestFrameworkScriptFile: setupTestsFile,
     testMatch: [
       '<rootDir>/src/**/__tests__/**/*.{js,jsx,mjs}',
-      '<rootDir>/src/**/?(*.)(spec|test).{js,jsx,mjs}',
+      '<rootDir>/src/**/?((*.)|(*_))(test|spec).{js,jsx,mjs,re,ml}',
     ],
     testEnvironment: 'node',
     testURL: 'http://localhost',
     transform: {
+      '^.+\\.(re|ml)$': isEjecting
+        ? '<rootDir>/node_modules/bs-loader'
+        : 'bs-loader',
       '^.+\\.(js|jsx|mjs)$': isEjecting
         ? '<rootDir>/node_modules/babel-jest'
         : resolve('config/jest/babelTransform.js'),
@@ -51,6 +54,8 @@ module.exports = (resolve, rootDir, isEjecting) => {
       'jsx',
       'node',
       'mjs',
+      're',
+      'ml',
     ],
   };
   if (rootDir) {

@@ -92,7 +92,7 @@ then
   if [ $(npm -v | head -c 1) -eq 5 ]; then
     npm i -g npm@^4.x
   fi;
-  npm cache clean || npm cache verify
+  npm cache clean --force || npm cache verify
 fi
 
 # If the node version is < 6, the script should just give an error.
@@ -232,7 +232,9 @@ verify_module_scope
 echo yes | npm run eject
 
 # Test the build
-npm run build
+# HACK: https://github.com/facebook/create-react-app/issues/4433
+yarn add babel-loader
+yarn build
 # Check for expected output
 exists build/*.html
 exists build/static/js/*.js
@@ -240,14 +242,16 @@ exists build/static/css/*.css
 exists build/static/media/*.svg
 exists build/favicon.ico
 
-# Run tests, overring the watch option to disable it.
-# Until we upgrade to Jest 20 there's a bug in `node scripts/test.js` related
-# to argv.
-sed -i -e 's/jest.run(argv);/jest.run.apply(null, argv);/' scripts/test.js
-npm test -- --watch=no
+# Run tests, overriding the watch option to disable it.
+# `CI=true yarn test` won't work here because `yarn test` becomes just `jest`.
+# We should either teach Jest to respect CI env variable, or make
+# `scripts/test.js` survive ejection (right now it doesn't).
+yarn test --watch=no
+# Uncomment when snapshot testing is enabled by default:
+# exists src/__snapshots__/App.test.js.snap
 
 # Test the server
-npm start -- --smoke-test
+yarn start --smoke-test
 
 # Test environment handling
 verify_env_url
