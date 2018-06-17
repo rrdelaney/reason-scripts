@@ -169,8 +169,8 @@ If this still does not work, make sure your file path does not include any space
 
 <p><details>
 <summary><b>I got a SyntaxError after `yarn start` or `npm start`</b></summary>
-Try upgrading your Node to version 8 or later. 
-  
+Try upgrading your Node to version 8 or later.
+
 </details></p>
 
 
