@@ -186,11 +186,6 @@ module.exports = function(
     }
   }
 
-  if (tryGitInit(appPath)) {
-    console.log();
-    console.log('Initialized a git repository.');
-  }
-
   // Install devDependencies needed by Reason
   const reasonDevDeps = [
     'bs-platform',
@@ -218,6 +213,13 @@ module.exports = function(
   if (reasonDepsProc.status !== 0) {
     console.error(`\`${command} ${reasonArgs.join(' ')}\` failed`);
     return;
+  }
+
+  // Initialize the Git repo after adding Reason specific dependencies.
+  // Otherwise, we end up with uncommitted changed that make ejecting fail.
+  if (tryGitInit(appPath)) {
+    console.log();
+    console.log('Initialized a git repository.');
   }
 
   // Display the most elegant way to cd.

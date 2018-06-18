@@ -228,10 +228,6 @@ verify_module_scope
 # Finally, let's check that everything still works after ejecting.
 # ******************************************************************************
 
-# HACK: because we're using create-react-app stable to test
-# create-react-app@next, `yarn install` results in uncommitted changes
-rm -rf .git
-
 # Eject...
 echo yes | npm run eject
 
