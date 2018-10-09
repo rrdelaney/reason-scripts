@@ -232,8 +232,6 @@ verify_module_scope
 echo yes | npm run eject
 
 # Test the build
-# HACK: https://github.com/facebook/create-react-app/issues/4433
-yarn add babel-loader
 yarn build
 # Check for expected output
 exists build/*.html
@@ -242,11 +240,7 @@ exists build/static/css/*.css
 exists build/static/media/*.svg
 exists build/favicon.ico
 
-# Run tests, overriding the watch option to disable it.
-# `CI=true yarn test` won't work here because `yarn test` becomes just `jest`.
-# We should either teach Jest to respect CI env variable, or make
-# `scripts/test.js` survive ejection (right now it doesn't).
-yarn test --watch=no
+CI=true yarn test
 # Uncomment when snapshot testing is enabled by default:
 # exists src/__snapshots__/App.test.js.snap
 
